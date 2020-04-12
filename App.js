@@ -176,7 +176,7 @@ export default function App() {
         onValueChange={(sliderValue) => updateTime(sliderValue)}
       />
       <Text>
-        {sentence[0]}{slideVal*100}{sentence[1]}
+        {sentence[0]}{spreadRates[slideVal]*100}{sentence[1]}
       </Text>
       <Text>
         {month}/{date}/{year}
