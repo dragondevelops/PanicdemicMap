@@ -39,7 +39,6 @@ export default function App() {
   let date = selectedDate.getDate();
   let month = selectedDate.getMonth()+1;
   let year = selectedDate.getFullYear();
-  console.log(selectedTime);
   return (
     <View style={styles.container}>
       <MapView 
