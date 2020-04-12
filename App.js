@@ -8,6 +8,7 @@ const maxWeight = 250;
 export default function App() {
   const [points, setPoints] = useState([]);
   const [selectedTime, setTime] = useState(79);
+  const [maxTime, setMaxTime] = useState(79);
   function generateArray() {
     let arr = [];
     for (const [key, value] of Object.entries(data)) {
@@ -19,6 +20,7 @@ export default function App() {
             weight: value3.cases[selectedTime]
           }
           if (obj.weight > maxWeight) obj.weight = maxWeight;
+          setMaxTime(value3['cases'].length);
           arr.push(obj);
         }
       }
@@ -33,11 +35,11 @@ export default function App() {
     generateArray();
   }, []);
   let selectedDate = new Date("2020-01-22");
-  selectedDate.setDate(selectedTime);
+  selectedDate.setDate(22+selectedTime);
   let date = selectedDate.getDate();
-  let month = selectedDate.getMonth();
+  let month = selectedDate.getMonth()+1;
   let year = selectedDate.getFullYear();
-  console.log(selectedDate);
+  console.log(selectedTime);
   return (
     <View style={styles.container}>
       <MapView 
@@ -60,8 +62,8 @@ export default function App() {
       <Slider
         style={styles.slider}
         minimumValue={0}
-        maximumValue={79}
-        value={79}
+        maximumValue={maxTime}
+        value={maxTime}
         step={1}
         onValueChange={(sliderValue) => updateTime(sliderValue)}
       />
