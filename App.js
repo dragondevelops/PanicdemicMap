@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import { StyleSheet, Text, View, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Slider } from 'react-native';
 import MapView, { Heatmap } from 'react-native-maps';
-import Slider from '@react-native-community/slider';
 import { data } from './data/datafile.js';
 
 const maxWeight = 250;
@@ -26,10 +25,14 @@ export default function App() {
     }
     setPoints(arr);
   }
+  function updateTime(sliderTime) {
+    setTime(sliderTime);
+    generateArray();
+  }
   useEffect(() => {
     generateArray();
   }, []);
-  console.log(points);
+  console.log(selectedTime);
   return (
     <View style={styles.container}>
       <MapView 
@@ -53,6 +56,9 @@ export default function App() {
         style={styles.slider}
         minimumValue={0}
         maximumValue={79}
+        value={79}
+        step={1}
+        onValueChange={(sliderValue) => updateTime(sliderValue)}
       />
     </View>
   );
