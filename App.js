@@ -32,7 +32,12 @@ export default function App() {
   useEffect(() => {
     generateArray();
   }, []);
-  console.log(selectedTime);
+  let selectedDate = new Date("2020-01-22");
+  selectedDate.setDate(selectedTime);
+  let date = selectedDate.getDate();
+  let month = selectedDate.getMonth();
+  let year = selectedDate.getFullYear();
+  console.log(selectedDate);
   return (
     <View style={styles.container}>
       <MapView 
@@ -60,6 +65,9 @@ export default function App() {
         step={1}
         onValueChange={(sliderValue) => updateTime(sliderValue)}
       />
+      <Text>
+        {month}/{date}/{year}
+      </Text>
     </View>
   );
 }
