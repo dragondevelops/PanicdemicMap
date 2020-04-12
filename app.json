@@ -23,6 +23,15 @@
     ],
     "ios": {
       "supportsTablet": true
+    },
+    "android": {
+      "package": "com.abstractultra.panicdemicmap",
+      "versionCode": 0,
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyCvAFE0v2GZCT0th5ZECiC0hQocv8H1MCQ"
+        }
+      }
     }
   }
 }

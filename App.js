@@ -7,8 +7,8 @@ const maxWeight = 250;
 
 export default function App() {
   const [points, setPoints] = useState([]);
-  const [selectedTime, setTime] = useState(79);
   const [maxTime, setMaxTime] = useState(79);
+  const [selectedTime, setTime] = useState(maxTime);
   function generateArray() {
     let arr = [];
     for (const [key, value] of Object.entries(data)) {
